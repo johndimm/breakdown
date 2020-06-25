@@ -140,13 +140,16 @@ class Detail extends React.Component {
         arrow = this.state.sortDir == 'ASC' ? upArrow : downArrow;
       }
 
-      return React.createElement("th", {
-        className: "detail_heading",
-        onClick: function () {
-          this.sortBy(key);
-        }.bind(this),
-        key: i
-      }, key, " ", arrow);
+      return (
+        /*#__PURE__*/
+        React.createElement("th", {
+          className: "detail_heading",
+          onClick: function () {
+            this.sortBy(key);
+          }.bind(this),
+          key: i
+        }, key, " ", arrow)
+      );
     }.bind(this));
     var rows = this.state.body.map(function (key, i) {
       var cols = key.split("\t");
@@ -155,31 +158,54 @@ class Detail extends React.Component {
 
         if (this.state.header[i2] == 'poster_path') {
           var src = 'https://image.tmdb.org/t/p/w200/' + value;
-          value = React.createElement("img", {
+          value =
+          /*#__PURE__*/
+          React.createElement("img", {
             width: "100",
             src: src
           });
         }
 
-        return React.createElement("td", {
-          key: i2
-        }, value);
+        return (
+          /*#__PURE__*/
+          React.createElement("td", {
+            key: i2
+          }, value)
+        );
       }.bind(this));
-      return React.createElement("tr", {
-        key: i
-      }, columns);
+      return (
+        /*#__PURE__*/
+        React.createElement("tr", {
+          key: i
+        }, columns)
+      );
     }.bind(this));
-    return React.createElement("div", {
-      id: "detail_div"
-    }, React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, header), rows)), React.createElement("div", {
-      className: "download_link"
-    }, React.createElement("button", {
-      className: "download_button",
-      onClick: this.showNextChunk.bind(this)
-    }, "+100"), "\xA0", React.createElement("button", {
-      className: "download_button",
-      onClick: this.downloadCSV.bind(this)
-    }, "Download")));
+    return (
+      /*#__PURE__*/
+      React.createElement("div", {
+        id: "detail_div"
+      },
+      /*#__PURE__*/
+      React.createElement("table", null,
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null, header), rows)),
+      /*#__PURE__*/
+      React.createElement("div", {
+        className: "download_link"
+      },
+      /*#__PURE__*/
+      React.createElement("button", {
+        className: "download_button",
+        onClick: this.showNextChunk.bind(this)
+      }, "+100"), "\xA0",
+      /*#__PURE__*/
+      React.createElement("button", {
+        className: "download_button",
+        onClick: this.downloadCSV.bind(this)
+      }, "Download")))
+    );
   }
 
 }

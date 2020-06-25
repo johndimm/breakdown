@@ -44,33 +44,50 @@ function formatDollars(num) {
 
 class Bar extends React.Component {
   render() {
-    return React.createElement("td", {
-      className: "bar_holder"
-    }, React.createElement("table", {
-      className: "bar_table"
-    }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
-      style: {
-        'width': this.props.pcMaxNeg + "%"
-      }
-    }, React.createElement("div", {
-      style: {
-        'width': this.props.pc0Neg + '%',
-        'height': '18px',
-        'backgroundColor': 'red',
-        'float': 'right'
+    return (
+      /*#__PURE__*/
+      React.createElement("td", {
+        className: "bar_holder"
       },
-      className: "bar"
-    })), React.createElement("td", {
-      style: {
-        'width': this.props.pcMaxPos + "%"
-      }
-    }, React.createElement("div", {
-      style: {
-        'width': this.props.pc0Pos + '%',
-        'height': '18px'
+      /*#__PURE__*/
+      React.createElement("table", {
+        className: "bar_table"
       },
-      className: "bar"
-    }))))));
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null,
+      /*#__PURE__*/
+      React.createElement("td", {
+        style: {
+          'width': this.props.pcMaxNeg + "%"
+        }
+      },
+      /*#__PURE__*/
+      React.createElement("div", {
+        style: {
+          'width': this.props.pc0Neg + '%',
+          'height': '18px',
+          'backgroundColor': 'red',
+          'float': 'right'
+        },
+        className: "bar"
+      })),
+      /*#__PURE__*/
+      React.createElement("td", {
+        style: {
+          'width': this.props.pcMaxPos + "%"
+        }
+      },
+      /*#__PURE__*/
+      React.createElement("div", {
+        style: {
+          'width': this.props.pc0Pos + '%',
+          'height': '18px'
+        },
+        className: "bar"
+      }))))))
+    );
   }
 
 }
@@ -228,11 +245,14 @@ class Report extends React.Component {
           style = {};
         }
 
-        return React.createElement("td", {
-          className: "measure_cell",
-          key: i,
-          style: style
-        }, num);
+        return (
+          /*#__PURE__*/
+          React.createElement("td", {
+            className: "measure_cell",
+            key: i,
+            style: style
+          }, num)
+        );
       }); //
       // Store list of values for next/prev in dimension bar.
       //
@@ -241,26 +261,36 @@ class Report extends React.Component {
       // Assemble a line of the report.
       //
 
-      return React.createElement("tr", {
-        key: i,
-        className: "report_line",
-        onClick: function () {
-          this.props.addFilter(this.props.groupBy, row[this.props.groupBy]);
-        }.bind(this)
-      }, React.createElement("td", null, row[this.props.groupBy]), React.createElement(Bar, {
-        pc0Pos: pc0Pos,
-        pc0Neg: pc0Neg,
-        pcMaxPos: pcMaxPos,
-        pcMaxNeg: pcMaxNeg
-      }), measure_columns);
+      return (
+        /*#__PURE__*/
+        React.createElement("tr", {
+          key: i,
+          className: "report_line",
+          onClick: function () {
+            this.props.addFilter(this.props.groupBy, row[this.props.groupBy]);
+          }.bind(this)
+        },
+        /*#__PURE__*/
+        React.createElement("td", null, row[this.props.groupBy]),
+        /*#__PURE__*/
+        React.createElement(Bar, {
+          pc0Pos: pc0Pos,
+          pc0Neg: pc0Neg,
+          pcMaxPos: pcMaxPos,
+          pcMaxNeg: pcMaxNeg
+        }), measure_columns)
+      );
     }.bind(this));
   }
 
   generateTotals(minmax) {
     var measure_columns = this.props.measures.map(function (measure, i) {
-      if (measure == '') return React.createElement("td", {
-        key: i
-      });else {
+      if (measure == '') return (
+        /*#__PURE__*/
+        React.createElement("td", {
+          key: i
+        })
+      );else {
         var style;
         var num;
 
@@ -277,26 +307,39 @@ class Report extends React.Component {
           var num = formatNumber(minmax[measure].total);
         }
 
-        return React.createElement("td", {
-          className: "measure_cell",
-          key: i,
-          style: style
-        }, num);
+        return (
+          /*#__PURE__*/
+          React.createElement("td", {
+            className: "measure_cell",
+            key: i,
+            style: style
+          }, num)
+        );
       }
     }.bind(this));
-    return React.createElement("tr", null, React.createElement("td", {
-      style: {
-        'borderRight': 'none'
-      }
-    }), React.createElement("td", {
-      style: {
-        'borderLeft': 'none'
-      }
-    }, "Totals:"), measure_columns);
+    return (
+      /*#__PURE__*/
+      React.createElement("tr", null,
+      /*#__PURE__*/
+      React.createElement("td", {
+        style: {
+          'borderRight': 'none'
+        }
+      }),
+      /*#__PURE__*/
+      React.createElement("td", {
+        style: {
+          'borderLeft': 'none'
+        }
+      }, "Totals:"), measure_columns)
+    );
   }
 
   render() {
-    if (this.state.lines.length == 0) return React.createElement("div", null);
+    if (this.state.lines.length == 0) return (
+      /*#__PURE__*/
+      React.createElement("div", null)
+    );
     var minmax = this.scanMeasures();
     var rows = this.generateReportRows(minmax);
     var totals = this.generateTotals(minmax);
@@ -312,13 +355,16 @@ class Report extends React.Component {
         arrow = this.state.sortDir == 'ASC' ? upArrow : downArrow;
       }
 
-      return React.createElement("th", {
-        className: "report_heading",
-        onClick: function () {
-          this.sortByMeasure(measure);
-        }.bind(this),
-        key: i
-      }, measure, " ", arrow, " ");
+      return (
+        /*#__PURE__*/
+        React.createElement("th", {
+          className: "report_heading",
+          onClick: function () {
+            this.sortByMeasure(measure);
+          }.bind(this),
+          key: i
+        }, measure, " ", arrow, " ")
+      );
     }.bind(this));
     var arrow = '';
 
@@ -329,18 +375,31 @@ class Report extends React.Component {
     //
 
 
-    return React.createElement("div", {
-      id: "report_div"
-    }, React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", {
-      className: "report_heading",
-      style: {
-        'minWidth': '300px'
+    return (
+      /*#__PURE__*/
+      React.createElement("div", {
+        id: "report_div"
       },
-      onClick: this.sortByGroupBy.bind(this)
-    }, this.props.groupBy, " ", arrow), React.createElement("th", {
-      className: "report_heading",
-      width: "200"
-    }), measure_header), rows, totals)));
+      /*#__PURE__*/
+      React.createElement("table", null,
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null,
+      /*#__PURE__*/
+      React.createElement("th", {
+        className: "report_heading",
+        style: {
+          'minWidth': '300px'
+        },
+        onClick: this.sortByGroupBy.bind(this)
+      }, this.props.groupBy, " ", arrow),
+      /*#__PURE__*/
+      React.createElement("th", {
+        className: "report_heading",
+        width: "200"
+      }), measure_header), rows, totals)))
+    );
   }
 
 }

@@ -11,11 +11,14 @@ class Dimension extends React.Component {
     //
 
     var dimValues = this.props.dimValues.map(function (key, i) {
-      return React.createElement("option", {
-        key: i,
-        name: this.props.name,
-        value: key
-      }, key);
+      return (
+        /*#__PURE__*/
+        React.createElement("option", {
+          key: i,
+          name: this.props.name,
+          value: key
+        }, key)
+      );
     }.bind(this)); //
     // To make a drop-down listbox of values.
     //
@@ -23,7 +26,9 @@ class Dimension extends React.Component {
     var selectDimValues = '';
 
     if (this.props.dimValues.length > 0) {
-      selectDimValues = React.createElement("select", {
+      selectDimValues =
+      /*#__PURE__*/
+      React.createElement("select", {
         onChange: function (e) {
           let {
             name,
@@ -34,19 +39,37 @@ class Dimension extends React.Component {
       }, dimValues);
     }
 
-    var prevNext = React.createElement("td", null);
+    var prevNext =
+    /*#__PURE__*/
+    React.createElement("td", null);
 
     if (this.props.name == this.props.lastFilter) {
-      prevNext = React.createElement("td", {
+      prevNext =
+      /*#__PURE__*/
+      React.createElement("td", {
         className: "arrows_div"
-      }, React.createElement("table", {
+      },
+      /*#__PURE__*/
+      React.createElement("table", {
         className: "prev_dim_div"
-      }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", null, React.createElement("div", {
+      },
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null,
+      /*#__PURE__*/
+      React.createElement("td", null,
+      /*#__PURE__*/
+      React.createElement("div", {
         className: "arrow prev_dim",
         onClick: function () {
           this.props.slideDim(this.props.name, this.props.selectedValue, -1);
         }.bind(this)
-      }, leftArrow)), React.createElement("td", null, React.createElement("div", {
+      }, leftArrow)),
+      /*#__PURE__*/
+      React.createElement("td", null,
+      /*#__PURE__*/
+      React.createElement("div", {
         className: "arrow next_dim",
         onClick: function () {
           this.props.slideDim(this.props.name, this.props.selectedValue, 1);
@@ -54,12 +77,22 @@ class Dimension extends React.Component {
       }, rightArrow))))));
     }
 
-    var selectedValueDiv = React.createElement("div", null);
+    var selectedValueDiv =
+    /*#__PURE__*/
+    React.createElement("div", null);
 
     if (this.props.selectedValue != null) {
-      selectedValueDiv = React.createElement("table", {
+      selectedValueDiv =
+      /*#__PURE__*/
+      React.createElement("table", {
         className: "selected_value_table"
-      }, React.createElement("tbody", null, React.createElement("tr", null, prevNext, React.createElement("td", {
+      },
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null, prevNext,
+      /*#__PURE__*/
+      React.createElement("td", {
         className: "selected_value",
         onClick: function () {
           this.props.removeFilter(this.props.name);
@@ -70,19 +103,34 @@ class Dimension extends React.Component {
     var titleClass = 'dim_normal';
     if (this.props.count > 1000) titleClass = 'dim_toobig';else if (this.props.isGroupby) titleClass = 'dim_groupby';
     var nameSpaced = this.props.name.replace(/_/g, ' ');
-    return React.createElement("div", {
-      className: "dimension"
-    }, React.createElement("div", {
-      className: titleClass,
-      onClick: this.props.setGroupby
-    }, React.createElement("table", {
-      className: "dim_table"
-    }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
-      className: "dim_name",
-      title: this.props.title
-    }, nameSpaced), React.createElement("td", {
-      className: "dim_count"
-    }, this.props.count))))), selectedValueDiv);
+    return (
+      /*#__PURE__*/
+      React.createElement("div", {
+        className: "dimension"
+      },
+      /*#__PURE__*/
+      React.createElement("div", {
+        className: titleClass,
+        onClick: this.props.setGroupby
+      },
+      /*#__PURE__*/
+      React.createElement("table", {
+        className: "dim_table"
+      },
+      /*#__PURE__*/
+      React.createElement("tbody", null,
+      /*#__PURE__*/
+      React.createElement("tr", null,
+      /*#__PURE__*/
+      React.createElement("td", {
+        className: "dim_name",
+        title: this.props.title
+      }, nameSpaced),
+      /*#__PURE__*/
+      React.createElement("td", {
+        className: "dim_count"
+      }, this.props.count))))), selectedValueDiv)
+    );
   }
 
 }
