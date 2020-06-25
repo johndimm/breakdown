@@ -1,0 +1,12 @@
+Breakdown slices and dices financial data that you download from your Mint account.  In a few clicks, it can answer questions like:
+
+Where did all my  money go?
+When did I start shopping more at Trader Joe's than Vons?
+Why did I spend more on vacation this year than usual?
+Have my favorite restaurants changed over the months and years?
+
+How have our favorite restaurants changed over the months and years?
+
+Breakdown works by loading your Mint data into Lovefield, the browser-based local database written in javascript by a team at Google.
+
+Your data stays on your machine.

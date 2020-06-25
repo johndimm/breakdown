@@ -1,0 +1,195 @@
+body {
+  font-family: sans-serif;
+  height:100%;
+}
+
+.dimensions_div {
+  min-width: 100px;
+  max-width: 400px;
+  float: left;
+  text-align: center;
+  overflow: auto;
+  height:calc(100vh - 140px);
+}
+
+.dimensions_div button {
+  font-size:14pt;
+}
+
+th {
+  background-color: #DDDDDD;
+}
+th,
+td {
+  padding: 4px;
+}
+table {
+  border-collapse: collapse;
+}
+
+td.measure {
+  text-align: right;
+}
+
+#report_div td, #detail_div td, #detail_div th {
+  border: 1px solid #888888;
+
+}
+
+.measure_cell {
+  text-align: right;
+  font-size: 90%;
+  border: 1px solid #DDDDDD
+}
+
+.title_cell {
+  font-size:24pt;
+}
+
+.source_title {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.banner {
+  width: 900px;
+}
+
+.title_cell, .menu_cell, .toggle_cell {
+  border: none;
+}
+
+.toggle_cell {
+  padding-left: 50px;
+}
+
+.subtitle_div {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+.about_div {
+  font-size: 12pt;
+}
+
+.content td {
+  vertical-align: top;
+}
+
+#dataset_catalog_context_switch {
+  cursor: pointer;
+  display: none;
+}
+
+.dataset_cell {
+  vertical-align: top;
+  width: 200px;
+  margin: 20px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+#datasets {
+ // margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  padding: 20px;
+  text-align: center;
+//  background-color: #EFEFEF;
+}
+
+//#breakdown {
+//  display: none;
+//}
+
+body.waiting * {
+    cursor: progress;
+}
+
+#connect_button {
+  display: none;
+}
+
+#catalog_title {
+  font-family: Chalkduster, fantasy;
+  font-size: 32pt;
+}
+
+#try_it {
+  font-size:18pt;
+  color: darkblue;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#import_instructions {
+  margin-top: 20px;
+}
+
+#import_status {
+  margin: 10px;
+  border: 1 solid black;
+}
+
+#continue_import_button {
+  display: none;
+}
+
+#import_instructions_button {
+//  display: none;
+}
+
+ .grayed_out {
+   color: #AAAAAA
+ }
+
+
+ .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn  {
+  width: 100px;
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+
+input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+#datasets_intro {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#datasets_diagram {
+  margin-top: 10px;
+}
+
+#import_button {
+  cursor: pointer;
+}
+
+
