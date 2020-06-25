@@ -84,7 +84,7 @@ Test from the command line to see that the data is ready.
 
 ```
 $php mysql.php
-[{"name":"olympics","fact_table":"olympics_fact","summary_table":"olympics_summary","dimensions":"Sport,Discipline,Athlete,Event,Country,Medal,Year,Season,Gender,City","measures":"Medals","aggregates":"count(*) as Medals","detail_columns":"*","page_title":"Olympic Medals","description":"up to the 2014 Winter Games","url":"https:\/\/www.kaggle.com\/the-guardian\/olympic-games","dim_metadata_table":"","google_sheet":"https:\/\/docs.google.com\/spreadsheets\/d\/1obx8JHesu-FGVUKsm6cX-Use9V8PZx-yqJmJHu095DE\/edit?usp=sharing"}]Johns-MBP:php johndimm$
+[{"name":"olympics","fact_table":"olympics_fact","summary_table":"olympics_summary","dimensions":"Sport,Discipline,Athlete,Event,Country,Medal,Year,Season,Gender,City","measures":"Medals","aggregates":"count(*) as Medals","detail_columns":"*","page_title":"Olympic Medals","description":"up to the 2014 Winter Games","url":"https:\/\/www.kaggle.com\/the-guardian\/olympic-games","dim_metadata_table":"","google_sheet":"https:\/\/docs.google.com\/spreadsheets\/d\/1obx8JHesu-FGVUKsm6cX-Use9V8PZx-yqJmJHu095DE\/edit?usp=sharing"}]
 ```
 
 ### 8. navigate to the index.html file
