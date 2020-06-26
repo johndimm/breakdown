@@ -1,6 +1,8 @@
 drop table if exists olympics_fact;
 drop table if exists olympics_summary;
-create table olympics_fact (
+drop table if exists olympics_base;
+
+create table olympics_base (
 Season    varchar(6),
 Year    int,
 City    varchar(22),
@@ -14,14 +16,22 @@ Medal    varchar(6)
 );
 
 
-load data local infile 'olympics.tsv' into table olympics_fact IGNORE 1 LINES;
+load data local infile 'olympics.tsv' into table olympics_base IGNORE 1 LINES;
 
-alter table olympics_fact
-add column Country varchar(255);
-
-update olympics_fact as oly
+create view olympics_fact as
+select 
+Season,
+Year,
+City,
+Sport,
+Discipline,
+Athlete,
+ifnull(d.country,oly.Country_code) as Country,
+Gender,
+Event,
+Medal
+from olympics_base as oly
 join dictionary_fact as d on d.code = oly.Country_code
-set oly.Country = d.country
 ;
 
 
